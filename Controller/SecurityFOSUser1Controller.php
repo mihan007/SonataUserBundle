@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sonata package.
  *
@@ -8,7 +9,6 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Sonata\UserBundle\Controller;
 
 use FOS\UserBundle\Controller\SecurityController;
@@ -16,14 +16,16 @@ use Sonata\UserBundle\Model\UserInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * Class SecurityFOSUser1Controller
+ * Class SecurityFOSUser1Controller.
  *
- * @package Sonata\UserBundle\Controller
  *
  * @author Hugo Briand <briand@ekino.com>
  */
 class SecurityFOSUser1Controller extends SecurityController
 {
+    /**
+     * {@inheritdoc}
+     */
     public function loginAction()
     {
         $user = $this->container->get('security.context')->getToken()->getUser();

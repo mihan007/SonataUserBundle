@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sonata package.
  *
@@ -8,16 +9,15 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Sonata\UserBundle\Document;
 
 use FOS\UserBundle\Document\GroupManager as BaseGroupManager;
+use Sonata\DatagridBundle\Pager\PagerInterface;
 use Sonata\UserBundle\Model\GroupManagerInterface;
 
 /**
- * Class GroupManager
+ * Class GroupManager.
  *
- * @package Sonata\UserBundle\Document
  *
  * @author Hugo Briand <briand@ekino.com>
  */
@@ -29,5 +29,18 @@ class GroupManager extends BaseGroupManager implements GroupManagerInterface
     public function findGroupsBy(array $criteria = null, array $orderBy = null, $limit = null, $offset = null)
     {
         return $this->repository->findBy($criteria, $orderBy, $limit, $offset);
+    }
+
+    /**
+     * @param array $criteria
+     * @param int   $page
+     * @param int   $limit
+     * @param array $sort
+     *
+     * @return PagerInterface
+     */
+    public function getPager(array $criteria, $page, $limit = 10, array $sort = array())
+    {
+        new \RuntimeException('method not implemented');
     }
 }

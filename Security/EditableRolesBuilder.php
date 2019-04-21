@@ -17,10 +17,19 @@ use Symfony\Component\Security\Core\SecurityContextInterface;
 
 class EditableRolesBuilder
 {
+    /**
+     * @var SecurityContextInterface
+     */
     protected $securityContext;
 
+    /**
+     * @var Pool
+     */
     protected $pool;
 
+    /**
+     * @var array
+     */
     protected $rolesHierarchy;
 
     /**
@@ -60,6 +69,10 @@ class EditableRolesBuilder
             // TODO get the base role from the admin or security handler
             $baseRole = $securityHandler->getBaseRole($admin);
 
+            if (strlen($baseRole) == 0) { // the security handler related to the admin does not provide a valid string
+                continue;
+            }
+
             foreach ($admin->getSecurityInformation() as $role => $permissions) {
                 $role = sprintf($baseRole, $role);
 
@@ -78,7 +91,7 @@ class EditableRolesBuilder
         // get roles from the service container
         foreach ($this->rolesHierarchy as $name => $rolesHierarchy) {
             if ($this->securityContext->isGranted($name) || $isMaster) {
-                $roles[$name] = $name . ': ' . implode(', ', $rolesHierarchy);
+                $roles[$name] = $name.': '.implode(', ', $rolesHierarchy);
 
                 foreach ($rolesHierarchy as $role) {
                     if (!isset($roles[$role])) {

@@ -12,37 +12,37 @@
 
 namespace Sonata\UserBundle\Form\Handler;
 
+use FOS\UserBundle\Model\UserInterface;
+use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 
-use FOS\UserBundle\Model\UserInterface;
-use FOS\UserBundle\Model\UserManagerInterface;
-
 /**
- *
- * This file is an adapted version of FOS User Bundle ProfileFormHandler class
+ * This file is an adapted version of FOS User Bundle ProfileFormHandler class.
  *
  *    (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
  */
 class ProfileFormHandler
 {
     /**
-     * @var \Symfony\Component\HttpFoundation\Request
+     * @var Request
      */
     protected $request;
+
     /**
-     * @var \FOS\UserBundle\Model\UserManagerInterface
+     * @var UserManagerInterface
      */
     protected $userManager;
+
     /**
-     * @var \Symfony\Component\Form\Form
+     * @var Form
      */
     protected $form;
 
     /**
-     * @param Form                                      $form
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param UserManagerInterface                      $userManager
+     * @param Form                 $form
+     * @param Request              $request
+     * @param UserManagerInterface $userManager
      */
     public function __construct(Form $form, Request $request, UserManagerInterface $userManager)
     {
@@ -61,7 +61,7 @@ class ProfileFormHandler
         $this->form->setData($user);
 
         if ('POST' == $this->request->getMethod()) {
-            $this->form->bind($this->request);
+            $this->form->submit($this->request);
 
             if ($this->form->isValid()) {
                 $this->onSuccess($user);

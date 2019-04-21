@@ -17,8 +17,14 @@ use Symfony\Component\Form\DataTransformerInterface;
 
 class RestoreRolesTransformer implements DataTransformerInterface
 {
+    /**
+     * @var array|null
+     */
     protected $originalRoles = null;
 
+    /**
+     * @var EditableRolesBuilder|null
+     */
     protected $rolesBuilder  = null;
 
     /**
@@ -62,7 +68,7 @@ class RestoreRolesTransformer implements DataTransformerInterface
             throw new \RuntimeException('Invalid state, originalRoles array is not set');
         }
 
-        list($availableRoles, ) = $this->rolesBuilder->getRoles();
+        list($availableRoles) = $this->rolesBuilder->getRoles();
 
         $hiddenRoles = array_diff($this->originalRoles, array_keys($availableRoles));
 

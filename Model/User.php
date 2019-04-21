@@ -12,10 +12,9 @@
 namespace Sonata\UserBundle\Model;
 
 use FOS\UserBundle\Entity\User as AbstractedUser;
-use Sonata\UserBundle\Model\UserInterface;
 
 /**
- * Represents a User model
+ * Represents a User model.
  */
 abstract class User extends AbstractedUser implements UserInterface
 {
@@ -130,17 +129,21 @@ abstract class User extends AbstractedUser implements UserInterface
     protected $token;
 
     /**
-     * Sets the creation date
+     * Sets the creation date.
      *
      * @param \DateTime|null $createdAt
+     *
+     * @return User
      */
     public function setCreatedAt(\DateTime $createdAt = null)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
     }
 
     /**
-     * Returns the creation date
+     * Returns the creation date.
      *
      * @return \DateTime|null
      */
@@ -150,17 +153,21 @@ abstract class User extends AbstractedUser implements UserInterface
     }
 
     /**
-     * Sets the last update date
+     * Sets the last update date.
      *
      * @param \DateTime|null $updatedAt
+     *
+     * @return User
      */
     public function setUpdatedAt(\DateTime $updatedAt = null)
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 
     /**
-     * Returns the last update date
+     * Returns the last update date.
      *
      * @return \DateTime|null
      */
@@ -170,7 +177,7 @@ abstract class User extends AbstractedUser implements UserInterface
     }
 
     /**
-     * Returns the expiration date
+     * Returns the expiration date.
      *
      * @return \DateTime|null
      */
@@ -180,21 +187,7 @@ abstract class User extends AbstractedUser implements UserInterface
     }
 
     /**
-     * Set expiration date
-     *
-     * @param \DateTime|null $date
-     *
-     * @return User
-     */
-    public function setExpiresAt(\DateTime $date = null)
-    {
-        $this->expiresAt = $date;
-
-        return $this;
-    }
-
-    /**
-     * Returns the credentials expiration date
+     * Returns the credentials expiration date.
      *
      * @return \DateTime
      */
@@ -204,17 +197,21 @@ abstract class User extends AbstractedUser implements UserInterface
     }
 
     /**
-     * Sets the credentials expiration date
+     * Sets the credentials expiration date.
      *
      * @param \DateTime|null $date
+     *
+     * @return User
      */
     public function setCredentialsExpireAt(\DateTime $date = null)
     {
         $this->credentialsExpireAt = $date;
+
+        return $this;
     }
 
     /**
-     * Returns a string representation
+     * Returns a string representation.
      *
      * @return string
      */
@@ -224,29 +221,37 @@ abstract class User extends AbstractedUser implements UserInterface
     }
 
     /**
-     * Sets the user groups
+     * Sets the user groups.
      *
      * @param array $groups
+     *
+     * @return User
      */
     public function setGroups($groups)
     {
         foreach ($groups as $group) {
             $this->addGroup($group);
         }
+
+        return $this;
     }
 
     /**
-     * Sets the two-step verification code
+     * Sets the two-step verification code.
      *
      * @param string $twoStepVerificationCode
+     *
+     * @return User
      */
     public function setTwoStepVerificationCode($twoStepVerificationCode)
     {
         $this->twoStepVerificationCode = $twoStepVerificationCode;
+
+        return $this;
     }
 
     /**
-     * Returns the two-step verification code
+     * Returns the two-step verification code.
      *
      * @return string
      */
@@ -257,10 +262,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $biography
+     *
+     * @return User
      */
     public function setBiography($biography)
     {
         $this->biography = $biography;
+
+        return $this;
     }
 
     /**
@@ -273,10 +282,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param \DateTime $dateOfBirth
+     *
+     * @return User
      */
     public function setDateOfBirth($dateOfBirth)
     {
         $this->dateOfBirth = $dateOfBirth;
+
+        return $this;
     }
 
     /**
@@ -289,10 +302,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $facebookData
+     *
+     * @return User
      */
     public function setFacebookData($facebookData)
     {
         $this->facebookData = $facebookData;
+
+        return $this;
     }
 
     /**
@@ -305,10 +322,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $facebookName
+     *
+     * @return User
      */
     public function setFacebookName($facebookName)
     {
         $this->facebookName = $facebookName;
+
+        return $this;
     }
 
     /**
@@ -321,10 +342,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $facebookUid
+     *
+     * @return User
      */
     public function setFacebookUid($facebookUid)
     {
         $this->facebookUid = $facebookUid;
+
+        return $this;
     }
 
     /**
@@ -337,10 +362,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $firstname
+     *
+     * @return User
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+
+        return $this;
     }
 
     /**
@@ -353,10 +382,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $gender
+     *
+     * @return User
      */
     public function setGender($gender)
     {
         $this->gender = $gender;
+
+        return $this;
     }
 
     /**
@@ -369,10 +402,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $gplusData
+     *
+     * @return User
      */
     public function setGplusData($gplusData)
     {
         $this->gplusData = $gplusData;
+
+        return $this;
     }
 
     /**
@@ -385,10 +422,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $gplusName
+     *
+     * @return User
      */
     public function setGplusName($gplusName)
     {
         $this->gplusName = $gplusName;
+
+        return $this;
     }
 
     /**
@@ -401,10 +442,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $gplusUid
+     *
+     * @return User
      */
     public function setGplusUid($gplusUid)
     {
         $this->gplusUid = $gplusUid;
+
+        return $this;
     }
 
     /**
@@ -417,10 +462,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $lastname
+     *
+     * @return User
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
+
+        return $this;
     }
 
     /**
@@ -433,10 +482,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $locale
+     *
+     * @return User
      */
     public function setLocale($locale)
     {
         $this->locale = $locale;
+
+        return $this;
     }
 
     /**
@@ -449,10 +502,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $phone
+     *
+     * @return User
      */
     public function setPhone($phone)
     {
         $this->phone = $phone;
+
+        return $this;
     }
 
     /**
@@ -465,10 +522,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $timezone
+     *
+     * @return User
      */
     public function setTimezone($timezone)
     {
         $this->timezone = $timezone;
+
+        return $this;
     }
 
     /**
@@ -481,10 +542,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $twitterData
+     *
+     * @return User
      */
     public function setTwitterData($twitterData)
     {
         $this->twitterData = $twitterData;
+
+        return $this;
     }
 
     /**
@@ -497,10 +562,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $twitterName
+     *
+     * @return User
      */
     public function setTwitterName($twitterName)
     {
         $this->twitterName = $twitterName;
+
+        return $this;
     }
 
     /**
@@ -513,10 +582,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $twitterUid
+     *
+     * @return User
      */
     public function setTwitterUid($twitterUid)
     {
         $this->twitterUid = $twitterUid;
+
+        return $this;
     }
 
     /**
@@ -529,10 +602,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $website
+     *
+     * @return User
      */
     public function setWebsite($website)
     {
         $this->website = $website;
+
+        return $this;
     }
 
     /**
@@ -545,10 +622,14 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param string $token
+     *
+     * @return User
      */
     public function setToken($token)
     {
         $this->token = $token;
+
+        return $this;
     }
 
     /**
@@ -564,7 +645,7 @@ abstract class User extends AbstractedUser implements UserInterface
      */
     public function getFullname()
     {
-        return sprintf("%s %s", $this->getFirstname(), $this->getLastname());
+        return sprintf('%s %s', $this->getFirstname(), $this->getLastname());
     }
 
     /**
@@ -577,9 +658,13 @@ abstract class User extends AbstractedUser implements UserInterface
 
     /**
      * @param array $roles
+     *
+     * @return User
      */
     public function setRealRoles(array $roles)
     {
         $this->setRoles($roles);
+
+        return $this;
     }
 }
